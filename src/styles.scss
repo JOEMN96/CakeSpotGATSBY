@@ -12,10 +12,49 @@ $main-color:red;
 
 nav {
     height: 60px;
-    background-color: red;
+    background-color: $main-color;
     margin-bottom: 10px;
     color: white;
     position:sticky ;
     top: 0;
+   
+
+    .smallMenu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav__level1__items__Home > * {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .logo {
+        width: 180px;
+        height: 60px;
+    }
+
+    .nav__level1__items__Trigger {
+        cursor: pointer;
+        margin-right: 20px;
+        span {
+            height: 2px;
+            width: 18px;
+            margin-bottom: 5px;
+            display: block;
+            background-color: beige;
+            &:nth-child(2) {
+                width: 24px;
+            }
+        }
+
+    
+
+    }
 }
  
+
+@media screen and (max-width: 600px) {
+   
+  }

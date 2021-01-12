@@ -3,6 +3,7 @@ module.exports = {
     title: "My Gatsby Site",
   },
   plugins: [
+    "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
