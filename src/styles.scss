@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Work+Sans:wght@300;400;500&display=swap');
 * {
     padding:0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 
+// Variables
+
+$main-color:red;
+
+nav {
+    height: 60px;
+    background-color: red;
+    margin-bottom: 10px;
+    color: white;
+    position:sticky ;
+    top: 0;
+}
  
