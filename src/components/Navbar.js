@@ -32,6 +32,7 @@ function Navbar() {
         <div className="nav__level1__items__Logo">
           <Image className="logo" fluid={data.file.childImageSharp.fluid} />
         </div>
+        {/* Trigger */}
         <div
           onClick={triggerHandle}
           className={`nav__level1__items__Trigger ${navOpen && "navOpen"}`}
@@ -41,6 +42,9 @@ function Navbar() {
           <span></span>
         </div>
       </div>
+
+      {/* Large Screen  Menu  */}
+
       <div className="bigscrennNav">
         <Link to="/">Home</Link>
         <Link to="/">About</Link>
@@ -53,6 +57,7 @@ function Navbar() {
         </Link>
         <Link to="/">Contact Us</Link>
       </div>
+      {/* Small screen Menu */}
       <div
         className={`nav__level1__items__Home ${
           navOpen ? "navisOpen" : "navisClosed"

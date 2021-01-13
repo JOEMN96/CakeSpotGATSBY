@@ -24,6 +24,9 @@
 $bgWhite:#ffff;
 $shadow:0 10px 20px 0 rgba(79, 35, 35, 0.08);
 
+
+// NavBar
+
 nav {
 
     @include transition();
@@ -59,9 +62,8 @@ nav {
              }
          }
     }
-
+    // sideNav
     .nav__level1__items__Home {
-
       @include transition();
       box-shadow: $shadow;
       height: 100%;
@@ -73,7 +75,6 @@ nav {
       background-color: $bgWhite;
       overflow-x: hidden;
       transition: 0.5s;
-    //   padding-top: 60px;
         a {
         display: block;
         text-align: center;
@@ -85,8 +86,6 @@ nav {
         &:hover {
             background-color: #ddd;
         }
-        
-    
         .cartICon > * {
             font-size: 20px;
         } 
@@ -102,25 +101,19 @@ nav {
         cursor: pointer;
         color: black;
         font-weight: 600; 
-        &:hover {
-            background-color: #ddd;
-        }
         .cartICon > * {
             font-size: 20px;
         } 
     }
 }
-
     // Menu Open logic classes
-
     .navisClosed {
       width: 0px;
     }
-
     .navisOpen {
         width: 200px;
     }
-
+    // navTrigger anim
     .navOpen {
        
         margin-top: 10px;
@@ -143,6 +136,8 @@ nav {
     }
 }
 
+// !--- NavBar
+
 
 
 
@@ -159,29 +154,10 @@ nav {
         display: none !important;
     }
 
-    .navisClosed {
-        display: block !important;
-     }
-   
-    nav {
+      nav {
         @include flex();
-        .nav__level1__items__Trigger {
-            @include flex();
-        }
-
         .nav__level1__items__Home  {
             margin-right: 20px;
-
-            a {
-                display: inline;
-                margin: auto 10px;
-                text-decoration: none;
-                color: black;
-                font-weight: 600;
-            }
-
         }
-
-      
     }
 }
