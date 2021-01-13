@@ -5,8 +5,15 @@ import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
 
 const query = graphql`
-  query logo {
-    file(name: { eq: "logo" }) {
+  {
+    sidelogo: file(name: { eq: "logosidenav" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    logo: file(name: { eq: "logo" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -19,6 +26,8 @@ const query = graphql`
 function Navbar() {
   const data = useStaticQuery(query);
 
+  console.log(data);
+
   const [navOpen, setnavOpen] = useState(false);
 
   const triggerHandle = () => {
@@ -30,7 +39,7 @@ function Navbar() {
     <nav>
       <div className="smallMenu">
         <div className="nav__level1__items__Logo">
-          <Image className="logo" fluid={data.file.childImageSharp.fluid} />
+          <Image className="logo" fluid={data.logo.childImageSharp.fluid} />
         </div>
         {/* Trigger */}
         <div
@@ -63,7 +72,10 @@ function Navbar() {
           navOpen ? "navisOpen" : "navisClosed"
         } `}
       >
-        <Image className="sidelogo" fluid={data.file.childImageSharp.fluid} />
+        <Image
+          className="sidelogo"
+          fluid={data.sidelogo.childImageSharp.fluid}
+        />
         <Link to="/">Home</Link>
         <Link to="/">About</Link>
         <Link to="/cakes">Cakes</Link>

@@ -1,5 +1,3 @@
-let state = {};
-
-export let reducer = (state = state, action) => {
+export let reducer = (state = {}, action) => {
   return state;
 };
