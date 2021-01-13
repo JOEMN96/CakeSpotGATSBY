@@ -38,8 +38,14 @@ nav {
         width: 180px;
         height: 60px;
     }
+
+    .sidelogo {
+        width: 200px;
+        height: 60px;
+    }
     
     .nav__level1__items__Trigger  {
+        @include transition();
         margin-right: 20px;
         cursor: pointer;
          span {
@@ -57,7 +63,17 @@ nav {
     .nav__level1__items__Home {
 
       @include transition();
-
+      box-shadow: $shadow;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: $bgWhite;
+      overflow-x: hidden;
+      transition: 0.5s;
+    //   padding-top: 60px;
         a {
         display: block;
         text-align: center;
@@ -77,10 +93,53 @@ nav {
     }
 }
 
+.bigscrennNav {
+    margin-right: 20px;
+    a {
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+        font-weight: 600; 
+        &:hover {
+            background-color: #ddd;
+        }
+        .cartICon > * {
+            font-size: 20px;
+        } 
+    }
+}
+
     // Menu Open logic classes
 
     .navisClosed {
-       display: none;
+      width: 0px;
+    }
+
+    .navisOpen {
+        width: 200px;
+    }
+
+    .navOpen {
+       
+        margin-top: 10px;
+        span {
+            @include transition();
+            position: relative;
+            &:nth-child(1) {
+                transform: rotate(48deg);
+                top: -3px;
+              
+            }
+            &:nth-child(2) {
+                display: none;
+            }
+            &:nth-child(3) {
+                transform: rotate(135deg);
+                top: -10px;
+            }
+        }
     }
 }
 
@@ -88,6 +147,12 @@ nav {
 
 
 // Media Queries
+
+@media screen and (max-width: 900px) {
+    .bigscrennNav {
+        display: none;
+    }
+}
 
 @media screen and (min-width: 900px) {
     .nav__level1__items__Trigger {
@@ -116,5 +181,7 @@ nav {
             }
 
         }
+
+      
     }
 }
