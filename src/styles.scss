@@ -6,55 +6,115 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+@mixin transition {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 // Variables
 
-$main-color:red;
+$bgWhite:#ffff;
+$shadow:0 10px 20px 0 rgba(79, 35, 35, 0.08);
 
 nav {
-    height: 60px;
-    background-color: $main-color;
-    margin-bottom: 10px;
-    color: white;
-    position:sticky ;
-    top: 0;
-   
+
+    @include transition();
+    box-shadow: $shadow;
 
     .smallMenu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+       @include flex();
     }
 
-    .nav__level1__items__Home > * {
-        display: block;
-        margin: 0 auto;
-    }
 
     .logo {
         width: 180px;
         height: 60px;
     }
-
-    .nav__level1__items__Trigger {
-        cursor: pointer;
-        margin-right: 20px;
-        span {
-            height: 2px;
-            width: 18px;
-            margin-bottom: 5px;
-            display: block;
-            background-color: beige;
-            &:nth-child(2) {
-                width: 24px;
-            }
-        }
-
     
+    .nav__level1__items__Trigger  {
+        margin-right: 20px;
+        cursor: pointer;
+         span {
+             height: 2px;
+             width: 18px;
+             background: black;
+             margin-bottom: 5px;
+             display: block;
+             &:nth-child(2) {
+                 width: 24px;
+             }
+         }
+    }
 
+    .nav__level1__items__Home {
+
+      @include transition();
+
+        a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+        font-weight: 600; 
+        &:hover {
+            background-color: #ddd;
+        }
+        
+    
+        .cartICon > * {
+            font-size: 20px;
+        } 
     }
 }
- 
 
-@media screen and (max-width: 600px) {
+    // Menu Open logic classes
+
+    .navisClosed {
+       display: none;
+    }
+}
+
+
+
+
+// Media Queries
+
+@media screen and (min-width: 900px) {
+    .nav__level1__items__Trigger {
+        display: none !important;
+    }
+
+    .navisClosed {
+        display: block !important;
+     }
    
-  }
+    nav {
+        @include flex();
+        .nav__level1__items__Trigger {
+            @include flex();
+        }
+
+        .nav__level1__items__Home  {
+            margin-right: 20px;
+
+            a {
+                display: inline;
+                margin: auto 10px;
+                text-decoration: none;
+                color: black;
+                font-weight: 600;
+            }
+
+        }
+    }
+}
