@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&family=Work+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+
+
 * {
     padding:0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
+
 
 @mixin transition {
     transition-property: all;
@@ -23,14 +27,24 @@
 
 $bgWhite:#ffff;
 $shadow:0 10px 20px 0 rgba(79, 35, 35, 0.08);
+$secondaryText:#696969;
+$sectionSpacing:30px;
 
 
 // NavBar
+
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
 
 nav {
 
     @include transition();
     box-shadow: $shadow;
+    z-index: 10000;
+    background-color: $bgWhite;
 
     .smallMenu {
        @include flex();
@@ -51,6 +65,9 @@ nav {
         @include transition();
         margin-right: 20px;
         cursor: pointer;
+        border: 0;
+        outline: none;
+        background-color: transparent;
          span {
              height: 2px;
              width: 18px;
@@ -69,7 +86,7 @@ nav {
       height: 100%;
       width: 0;
       position: fixed;
-      z-index: 1;
+      z-index: 999;
       top: 0;
       left: 0;
       background-color: $bgWhite;
@@ -95,6 +112,20 @@ nav {
 .bigscrennNav {
     margin-right: 20px;
     a {
+        &:hover {
+            mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+            mask-size: 200%;
+            animation: shine 2s infinite;
+          }
+          @keyframes shine {
+            from {
+              -webkit-mask-position: 150%;
+            }
+            
+            to {
+              -webkit-mask-position: -50%;
+            }
+          }  
         text-align: center;
         padding: 10px;
         text-decoration: none;
@@ -107,6 +138,7 @@ nav {
     }
 }
     // Menu Open logic classes
+
     .navisClosed {
       width: 0px;
     }
@@ -114,8 +146,8 @@ nav {
         width: 200px;
     }
     // navTrigger anim
-    .navOpen {
-       
+
+    .navOpen {     
         margin-top: 10px;
         span {
             @include transition();
@@ -139,6 +171,37 @@ nav {
 // !--- NavBar
 
 
+// Index Page
+
+.LandingPageHero .swiper-container {
+    height: calc(87vh - 60px);
+    background-color: red;
+}    
+
+.whoweare {
+    padding: $sectionSpacing;
+    h2 {
+        text-align: center;
+        padding: 10px;
+        &::after {
+            content: "";
+            width: 70px;
+            height: 2px;
+            background-color: black;
+            display: block;
+            text-align: center;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%);
+        }
+    }
+
+    p {
+        text-align: center;
+        color:$secondaryText
+    }
+}
+  
 
 
 // Media Queries

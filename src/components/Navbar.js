@@ -26,14 +26,17 @@ const query = graphql`
 function Navbar() {
   const data = useStaticQuery(query);
 
-  console.log(data);
-
   const [navOpen, setnavOpen] = useState(false);
 
   const triggerHandle = () => {
     setnavOpen(!navOpen);
-    console.log(navOpen);
   };
+
+  window.addEventListener("scroll", () => {
+    let nav = document.querySelector("nav");
+    nav.classList.toggle("sticky", window.scrollY > 0);
+    console.log(window.screenY);
+  });
 
   return (
     <nav>
@@ -42,20 +45,22 @@ function Navbar() {
           <Image className="logo" fluid={data.logo.childImageSharp.fluid} />
         </div>
         {/* Trigger */}
-        <div
+        <button
           onClick={triggerHandle}
           className={`nav__level1__items__Trigger ${navOpen && "navOpen"}`}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
 
       {/* Large Screen  Menu  */}
 
       <div className="bigscrennNav">
-        <Link to="/">Home</Link>
+        <Link className="shine" to="/">
+          Home
+        </Link>
         <Link to="/">About</Link>
         <Link to="/cakes">Cakes</Link>
         <Link to="/surpricePacks">SurpricePacks</Link>
