@@ -28,7 +28,7 @@
 $bgWhite:#ffff;
 $shadow:0 10px 20px 0 rgba(79, 35, 35, 0.08);
 $secondaryText:#696969;
-$sectionSpacing:30px;
+$sectionSpacing:30px 10px;
 
 
 // NavBar
@@ -37,6 +37,8 @@ $sectionSpacing:30px;
 .sticky {
     position: sticky;
     top: 0;
+    background-color: white;
+    @include transition();
 }
 
 nav {
@@ -173,14 +175,41 @@ nav {
 
 // Index Page
 
-.LandingPageHero .swiper-container {
-    height: calc(87vh - 60px);
-    background-color: red;
-}    
+.LandingPageHero {
+   margin-bottom: 10px;
+   height: 70vh;
+    .col-md-6{
+        padding: 0;
+    }
+   .swiper-container {
+    height: 100%;
+    }
+    .container,.container-fluid ,.row {
+    height: 100%;
+    }
+
+    .headerText {
+        h1 {
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        p {
+            color: $secondaryText;
+            padding: 10px;
+            text-align: center;
+        }
+    }
+
+}
 
 .whoweare {
     padding: $sectionSpacing;
-    h2 {
+    h1 {
         text-align: center;
         padding: 10px;
         &::after {
@@ -201,7 +230,27 @@ nav {
         color:$secondaryText
     }
 }
-  
+
+.indexPage section > h1 {
+    padding: $sectionSpacing;
+
+    text-align: center;
+    &::after {
+        content: "";
+        width: 70px;
+        height: 2px;
+        background-color: black;
+        display: block;
+        text-align: center;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%);
+    }
+}
+
+
+
+
 
 
 // Media Queries
@@ -224,3 +273,13 @@ nav {
         }
     }
 }
+
+
+@media screen and (max-width: 1000px) {
+
+    .LandingPageHero {
+        height: auto;
+    }
+}
+
+

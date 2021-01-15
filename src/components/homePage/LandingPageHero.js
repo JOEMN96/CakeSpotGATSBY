@@ -2,27 +2,80 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import SwiperCore, { Autoplay, Scrollbar } from "swiper";
-
-// Import Swiper styles
 import "swiper/swiper.scss";
+
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "gatsby-image";
 
 SwiperCore.use([Autoplay, Scrollbar]);
 
+const query = graphql`
+  {
+    allStrapiHeroslider {
+      nodes {
+        slider1 {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        AdditionalImg {
+          Imgs {
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default () => {
+  const data = useStaticQuery(query);
+
+  let {
+    allStrapiHeroslider: { nodes },
+  } = data;
+
+  let AdditionalImg = nodes[0].AdditionalImg;
+
+  console.log(AdditionalImg);
+
   return (
     <Swiper
-      spaceBetween={50}
-      loop
+      className="heroSlider"
+      spaceBetween={10}
       slidesPerView={1}
       scrollbar={{ draggable: true }}
+      loop
       autoplay={{ delay: 3000 }}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>
+        <Image
+          style={{ height: "100%" }}
+          imgStyle={{ objectFit: "cover" }}
+          fluid={nodes[0].slider1.childImageSharp.fluid}
+        />
+      </SwiperSlide>
+
+      {AdditionalImg.map((element, index) => {
+        {
+          return (
+            <SwiperSlide key={index}>
+              <Image
+                style={{ height: "100%" }}
+                imgStyle={{ objectFit: "cover" }}
+                fluid={element.Imgs.childImageSharp.fluid}
+              />
+            </SwiperSlide>
+          );
+        }
+      })}
     </Swiper>
   );
 };

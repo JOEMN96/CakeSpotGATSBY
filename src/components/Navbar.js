@@ -34,8 +34,11 @@ function Navbar() {
 
   window.addEventListener("scroll", () => {
     let nav = document.querySelector("nav");
-    nav.classList.toggle("sticky", window.scrollY > 0);
-    console.log(window.screenY);
+    if (window.scrollY > 100 && window.scrollY < 300) {
+      nav.style.height = "0px";
+    }
+    nav.style.height = "60px";
+    nav.classList.toggle("sticky", window.scrollY > 300);
   });
 
   return (

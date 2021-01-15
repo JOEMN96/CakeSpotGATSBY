@@ -3,7 +3,7 @@ import React from "react";
 function WhoWeAre() {
   return (
     <section className="whoweare">
-      <h2>Who Are We</h2>
+      <h1>Who Are We</h1>
       <p>
         Swap IT Solutions is a web design and development company located in
         Kannur, Kerala. Our vision is providing value-added high quality IT
