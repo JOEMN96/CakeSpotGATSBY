@@ -14,40 +14,29 @@ function FeaturedItemsCard() {
 
   return (
     <div className="cardparent">
-      <div
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        id="product-card"
-        ref={card}
-      >
-        <div id="product-front">
-          <div className="shadow"></div>
-          <img
-            src="https://livforcake.com/wp-content/uploads/2017/07/black-forest-cake-thumb-500x500.jpg"
-            alt=""
-          />
-          <div className="image_overlay"></div>
-          <div id="view_details">
-            {" "}
-            <a href="">View details</a>
-          </div>
-          <div className="stats">
-            <div className="stats-container">
-              <span className="product_price">$39</span>
-              <span className="product_name">Chocolate cake</span>
-
-              <div className="product-options">
-                <strong>Available Sizes</strong>
-                <span>
-                  <span className="kg">1 Kg </span>
-                  <span className="kg">2 Kg</span>
-                </span>
-                <strong>About</strong>
-                <p>
-                  Made with ..... Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Optio, unde!
-                </p>
-              </div>
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1601971935068-fb9281b6deec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+          alt=""
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="#">Card Title</a>
+          </h5>
+          <div className="details">
+            <div className="price">
+              <p className="priceINN">
+                Price <span>₹ 20</span>
+              </p>
+              <h4>Description</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                sunt libero modi ipsum vitae repellendus in nam earum
+                voluptatibus dignissimos.
+              </p>
+            </div>
+            <div className="cardView">
+              <button>View</button>
             </div>
           </div>
         </div>

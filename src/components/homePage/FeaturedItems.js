@@ -8,7 +8,13 @@ function FeaturedItems() {
 
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-6 col-lg-4">
+            <FeaturedItemsCard />
+          </div>
+          <div className="col-md-6 col-lg-4">
+            <FeaturedItemsCard />
+          </div>
+          <div className="col-md-6 col-lg-4">
             <FeaturedItemsCard />
           </div>
         </div>
