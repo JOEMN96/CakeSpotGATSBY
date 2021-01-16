@@ -1,42 +1,36 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./FeaturedItemsCard.css";
+import Image from "gatsby-image";
 
-function FeaturedItemsCard() {
-  const card = useRef(null);
-  let handleEnter = () => {
-    card.current.classList.add("animate");
-  };
-
-  const handleLeave = () => {
-    // card.current.id.removeAttribute("id");
-    card.current.classList.remove("animate");
-  };
+function FeaturedItemsCard({ description, title, price, url, image }) {
+  let {
+    childImageSharp: { fluid },
+  } = image;
+  console.log(fluid);
 
   return (
     <div className="cardparent">
-      <div class="card">
-        <img
-          src="https://images.unsplash.com/photo-1601971935068-fb9281b6deec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-          alt=""
-        />
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Card Title</a>
+      <div className="card">
+        <div className="cardheaderImg">
+          <Image fluid={fluid} />
+        </div>
+        <div className="card-body">
+          <h5 className="card-title">
+            <a href="#">{title}</a>
           </h5>
           <div className="details">
             <div className="price">
               <p className="priceINN">
-                Price <span>₹ 20</span>
+                Price <span>₹ {price}</span>
               </p>
               <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                sunt libero modi ipsum vitae repellendus in nam earum
-                voluptatibus dignissimos.
-              </p>
+              <p>{description}</p>
             </div>
             <div className="cardView">
-              <button>View</button>
+              <button>
+                {" "}
+                <a href={url}>View</a>
+              </button>
             </div>
           </div>
         </div>

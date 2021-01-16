@@ -43,9 +43,6 @@ export default () => {
   } = data;
 
   let AdditionalImg = nodes[0].AdditionalImg;
-
-  console.log(AdditionalImg);
-
   return (
     <Swiper
       className="heroSlider"

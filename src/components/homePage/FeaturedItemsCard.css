@@ -24,6 +24,7 @@
   background-color: #fff;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+ 
 }
 
 .card-body h5{
@@ -44,6 +45,14 @@
   text-align: center;
 }
 
+.price {
+  height: 200px;
+}
+
+.price  h4 {
+  margin-bottom: 10px;
+}
+
 .card-body h5 a{
   color: #222;
 }
@@ -57,12 +66,27 @@
   padding: 5px 20px;
   background-color: #222;
   border: none;
-  color: #fff;
   border-radius: 2px;
+  cursor: pointer;
 }
+
+.cardView a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .priceINN {
   font-weight: 600;
 }
 .priceINN span {
   color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cardheaderImg {
+  height: 200px;
+}
+.cardheaderImg div {
+  height: 100%;
 }
