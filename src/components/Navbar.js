@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
+import { useDispatch } from "react-redux";
 
 const query = graphql`
   {
@@ -25,6 +26,10 @@ const query = graphql`
 
 function Navbar() {
   const data = useStaticQuery(query);
+
+  let dispatch = useDispatch();
+
+  data && dispatch({ type: "LOGO", logo: data.logo.childImageSharp.fluid });
 
   const [navOpen, setnavOpen] = useState(false);
 

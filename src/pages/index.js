@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import HeroSwiper from "../components/homePage/LandingPageHero";
 import WhoWeAre from "../components/homePage/WhoWeAre";
 import FeaturedItems from "../components/homePage/FeaturedItems";
+import Delivery from "../components/homePage/Delivery";
 
 // markup
 const IndexPage = () => {
@@ -38,6 +39,7 @@ const IndexPage = () => {
         </div>
         <WhoWeAre />
         <FeaturedItems />
+        <Delivery />
       </main>
     </Layout>
   );

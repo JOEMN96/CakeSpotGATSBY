@@ -9,6 +9,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 @mixin transition {
     transition-property: all;
@@ -210,6 +215,7 @@ nav {
 .whoweare {
     padding: $sectionSpacing;
     h1 {
+        margin-top: 10px;
         text-align: center;
         padding: 10px;
         &::after {
@@ -251,15 +257,145 @@ nav {
 // Featured Items
 
 .featuredItms {
-
     .row {
-
         position: relative;
     }
+}
 
+// Delivery section
+
+.delivery {
+    .MuiGrid-container {
+        padding:10px;
+        background-image: linear-gradient(to right, #d081a9 , #e6b9d4);
+        & .MuiGrid-item:nth-child(1) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+
+                h2 {
+                    color: white;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+                p {
+                    color: white;
+                    text-align: center;
+                }
+        }
+    }
+    
+    .imageContainer  {
+        display: flex;
+        justify-content: center;
+        &> div {
+            text-align: center;
+            width: 240px;
+        }
+    }
 }
 
 
+// Footer
+
+.footer {
+
+
+
+    background-color: black;
+    color: white;
+    & > div:nth-child(1) {
+        padding: 30px 20px;
+    }
+
+    .footer__logo {
+        width: 180px;
+    }
+
+    .MuiGrid-item {
+        padding: 0 15px;
+    }
+
+    .MuiGrid-container .MuiGrid-item:nth-child(1) {
+        p {
+            margin-top: 10px;
+        }
+        .socialMediaLinks {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        
+            .socialSingle {
+                font-size: 25px;
+                width: 30px;
+                height: 30px;
+                background-color: white;
+                margin:  10px;
+                border-radius: 50%;
+                position: relative;
+                cursor: pointer;
+
+                & :hover {
+                    @include transition();
+                    color: white;
+                }
+                
+                & a svg {
+                   position: absolute;
+                   top: 3px;
+                   left: 3px;
+                   padding: 3px;
+                   color: black;
+                }
+            }
+        }
+    }
+
+    
+    .MuiGrid-container .MuiGrid-item:nth-child(2) {
+        a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        h4 {
+            padding: 7px 0;
+        }
+        h2 {
+            padding: 10px 0;
+        }
+    }
+
+    .pagesLinksfoot {
+
+        h2 {
+            padding: 10px 0;
+        }
+          a {
+              display: block;
+              color: white;
+              text-decoration: none;
+              cursor: pointer;
+              padding: 5px 0;
+          }
+    }
+
+    .copyrightParent {
+        text-align: center;
+        display: block;
+        padding: 10px;
+        a {
+            color: white;
+        }
+    }
+    
+  
+}
+
+.socialSingle:hover  {
+    background-color: black !important;
+}
 
 
 

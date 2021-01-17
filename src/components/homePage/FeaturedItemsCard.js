@@ -6,7 +6,6 @@ function FeaturedItemsCard({ description, title, price, url, image }) {
   let {
     childImageSharp: { fluid },
   } = image;
-  console.log(fluid);
 
   return (
     <div className="cardparent">
@@ -28,7 +27,6 @@ function FeaturedItemsCard({ description, title, price, url, image }) {
             </div>
             <div className="cardView">
               <button>
-                {" "}
                 <a href={url}>View</a>
               </button>
             </div>
