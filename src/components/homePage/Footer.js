@@ -85,7 +85,7 @@ function Footer() {
         </Grid>
       </Grid>
       <p className="copyrightParent">
-        © 2020 All Rights Reserved.Designed by{" "}
+        © 2020 All Rights Reserved. Designed with ❤ by{" "}
         <a target="_blank" rel="noopener" href="https://twitter.com/aruljoe37">
           Joe Mn
         </a>

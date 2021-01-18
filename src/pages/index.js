@@ -6,6 +6,7 @@ import HeroSwiper from "../components/homePage/LandingPageHero";
 import WhoWeAre from "../components/homePage/WhoWeAre";
 import FeaturedItems from "../components/homePage/FeaturedItems";
 import Delivery from "../components/homePage/Delivery";
+import Blog from "../components/homePage/Blog";
 
 // markup
 const IndexPage = () => {
@@ -40,6 +41,7 @@ const IndexPage = () => {
         <WhoWeAre />
         <FeaturedItems />
         <Delivery />
+        <Blog />
       </main>
     </Layout>
   );

@@ -38,5 +38,11 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-background-image",
+      options: {
+        specialChars: "/:",
+      },
+    },
   ],
 };
