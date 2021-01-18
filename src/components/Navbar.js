@@ -25,13 +25,12 @@ const query = graphql`
 `;
 
 function Navbar() {
+  const [navOpen, setnavOpen] = useState(false);
   const data = useStaticQuery(query);
 
   let dispatch = useDispatch();
 
   data && dispatch({ type: "LOGO", logo: data.logo.childImageSharp.fluid });
-
-  const [navOpen, setnavOpen] = useState(false);
 
   const triggerHandle = () => {
     setnavOpen(!navOpen);

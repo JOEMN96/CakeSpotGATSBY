@@ -404,12 +404,12 @@ nav {
 .blogSEc {
 
     padding: 10px;
-
+    margin-bottom: 10px;
     .blog-card {
         display: flex;
         flex-direction: column;
         margin: 1rem auto;
-        box-shadow: 0 3px 7px -1px rgba(#000, .1);
+         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;;
         margin-bottom: 1.6%;
         background: #fff;
         line-height: 1.4;
@@ -491,19 +491,29 @@ nav {
             margin: 0;
             font-size: 1.7rem;
           }
-          h2 {
+          h3 {
             font-size: 1rem;
             font-weight: 300;
             text-transform: uppercase;
             color: $secondaryText;
             margin-top: 5px;
           }
+
+          p {
+            height: 50px;
+          }
           .read-more {
             text-align: right;
+            top: 25px;
+            background-color: white;
             a {
-              color: $color_prime;
+              color: $bgWhite;
               display: inline-block;
               position: relative;
+              background: black;
+              padding: 7px 10px;
+              border-radius: 3px;
+            
        
               &:hover:after {
                 margin-left: 5px;

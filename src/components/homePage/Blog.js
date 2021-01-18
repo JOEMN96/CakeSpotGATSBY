@@ -4,6 +4,7 @@ import BlogSlider from "./BlogSlider";
 function Blog() {
   return (
     <section className="blogSEc">
+      <h1>Blogs</h1>
       <BlogSlider />
     </section>
   );

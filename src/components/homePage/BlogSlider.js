@@ -1,66 +1,101 @@
 // Import Swiper React components
 import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Scrollbar } from "swiper";
 import "swiper/swiper.scss";
-import StyledBackgroundSection from "./ImageCheck";
-
-// import Image from "gatsby-image";
+import StyledBackgroundSection from "./BgBlogImg";
+import { AiOutlineUser } from "react-icons/Ai";
+import { BiTimeFive } from "react-icons/Bi";
 
 SwiperCore.use([Autoplay, Scrollbar]);
 
-export default () => {
-  return (
-    <Swiper
-      className="BlogSldier"
-      spaceBetween={50}
-      slidesPerView={2}
-      scrollbar={{ draggable: true }}
-      loop
-      autoplay={{ delay: 3000 }}
-    >
-      <SwiperSlide>
-        <StyledBackgroundSection />
-      </SwiperSlide>
+const query = graphql`
+  {
+    allStrapiBlogs {
+      nodes {
+        author
+        content
+        date(fromNow: true)
+        heading
+        subHeading
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
-      <SwiperSlide>
+export default () => {
+  const {
+    allStrapiBlogs: { nodes },
+  } = useStaticQuery(query);
+
+  let blogCards = nodes.map((blog) => {
+    let {
+      image: {
+        childImageSharp: { fluid },
+      },
+    } = blog;
+
+    return (
+      <SwiperSlide key={blog.heading}>
         <div className="blog-card">
           <div className="meta">
-            <div
-              className="photo"
-              style={{
-                backgroundImage:
-                  "url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)",
-              }}
-            ></div>
+            <StyledBackgroundSection image={fluid} className="photo" />
             <ul className="details">
-              <li className="author">John Doe</li>
-              <li className="date">Aug. 24, 2015</li>
+              <li className="author">
+                <AiOutlineUser /> {blog.author}
+              </li>
+              <li className="date">
+                <BiTimeFive /> {blog.date}
+              </li>
               <li className="tags">
                 <ul>
-                  <li>Learn</li>
-                  <li>Code</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
+                  <li>{blog.subHeading}</li>
                 </ul>
               </li>
             </ul>
           </div>
           <div className="description">
-            <h1>Learning to Code</h1>
-            <h2>Opening a door to the future</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum
-              dolorum architecto obcaecati enim dicta praesentium, quam nobis!
-              Neque ad aliquam facilis numquam. Veritatis, sit.
-            </p>
+            <h2>{blog.heading}</h2>
+            <h3>{blog.subHeading}</h3>
+            <p>{blog.content}</p>
             <p className="read-more">
-              <a href="#">Read More</a>
+              <Link to={`Blogs/${blog.heading}`}>Read More</Link>
             </p>
           </div>
         </div>
       </SwiperSlide>
+    );
+  });
+
+  return (
+    <Swiper
+      className="BlogSldier"
+      loop
+      grabCursor={true}
+      spaceBetween={10}
+      scrollbar={{ draggable: true }}
+      autoplay={{ delay: 8000 }}
+      breakpoints={{
+        // when window width is >= 640px
+        240: {
+          slidesPerView: 1,
+        },
+        // when window width is >= 768px
+        968: {
+          slidesPerView: 2,
+        },
+      }}
+    >
+      {blogCards}
     </Swiper>
   );
 };

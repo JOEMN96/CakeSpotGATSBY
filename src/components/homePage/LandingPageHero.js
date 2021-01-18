@@ -45,6 +45,7 @@ export default () => {
   let AdditionalImg = nodes[0].AdditionalImg;
   return (
     <Swiper
+      grabCursor={true}
       className="heroSlider"
       spaceBetween={10}
       slidesPerView={1}
