@@ -15,7 +15,7 @@ function FeaturedItemsCard({ description, title, price, url, image }) {
         </div>
         <div className="card-body">
           <h5 className="card-title">
-            <a href="#">{title}</a>
+            <a href="!#">{title}</a>
           </h5>
           <div className="details">
             <div className="price">

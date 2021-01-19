@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
-import { useDispatch } from "react-redux";
 
 const query = graphql`
   {
@@ -28,10 +27,6 @@ function Navbar() {
   const [navOpen, setnavOpen] = useState(false);
   const data = useStaticQuery(query);
 
-  let dispatch = useDispatch();
-
-  data && dispatch({ type: "LOGO", logo: data.logo.childImageSharp.fluid });
-
   const triggerHandle = () => {
     setnavOpen(!navOpen);
   };
@@ -49,7 +44,9 @@ function Navbar() {
     <nav>
       <div className="smallMenu">
         <div className="nav__level1__items__Logo">
-          <Image className="logo" fluid={data.logo.childImageSharp.fluid} />
+          <Link to="/">
+            <Image className="logo" fluid={data.logo.childImageSharp.fluid} />
+          </Link>
         </div>
         {/* Trigger */}
         <button
@@ -68,7 +65,7 @@ function Navbar() {
         <Link className="shine" to="/">
           Home
         </Link>
-        <Link to="/">About</Link>
+        <Link to="/about">About</Link>
         <Link to="/cakes">Cakes</Link>
         <Link to="/surpricePacks">SurpricePacks</Link>
         <Link to="/">
@@ -76,7 +73,7 @@ function Navbar() {
             <FiShoppingCart />
           </span>
         </Link>
-        <Link to="/">Contact Us</Link>
+        <Link to="/contact">Contact Us</Link>
       </div>
       {/* Small screen Menu */}
       <div
@@ -89,7 +86,7 @@ function Navbar() {
           fluid={data.sidelogo.childImageSharp.fluid}
         />
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
+        <Link to="/about">About</Link>
         <Link to="/cakes">Cakes</Link>
         <Link to="/surpricePacks">SurpricePacks</Link>
         <Link to="/">
@@ -97,7 +94,7 @@ function Navbar() {
             <FiShoppingCart />
           </span>
         </Link>
-        <Link to="/">Contact Us</Link>
+        <Link to="/contact">Contact Us</Link>
       </div>
     </nav>
   );

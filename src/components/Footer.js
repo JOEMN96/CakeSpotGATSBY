@@ -1,7 +1,5 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { useSelector } from "react-redux";
-import Image from "gatsby-image";
 import { FiFacebook } from "react-icons/Fi";
 import { AiOutlineYoutube } from "react-icons/Ai";
 import { AiOutlineGoogle } from "react-icons/Ai";
@@ -11,13 +9,12 @@ import { FiPhone } from "react-icons/Fi";
 import { Link } from "gatsby";
 
 function Footer() {
-  let logo = useSelector((state) => state);
   return (
     <section className="footer">
       <Grid container>
         <Grid item xs={12} md={4} lg={4}>
           <div className="footer__logo">
-            <Image fluid={logo.logo} />
+            <h2>Cake Spot</h2>
           </div>
           <p>
             The Cakespot Homebake serves varieties of freshly baked cakes like
@@ -79,14 +76,19 @@ function Footer() {
         <Grid className="pagesLinksfoot" item xs={12} md={4} lg={4}>
           <h2>Pages</h2>
           <Link to="/">Home</Link>
-          <Link to="">About</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
           <Link to="/cakes">Cakes</Link>
           <Link to="/surpricePacks">Surprise Packs</Link>
         </Grid>
       </Grid>
       <p className="copyrightParent">
         © 2020 All Rights Reserved. Designed with ❤ by{" "}
-        <a target="_blank" rel="noopener" href="https://twitter.com/aruljoe37">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://twitter.com/aruljoe37"
+        >
           Joe Mn
         </a>
       </p>
