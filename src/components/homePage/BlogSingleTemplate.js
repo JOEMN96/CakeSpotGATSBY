@@ -8,8 +8,6 @@ import { AiOutlineUser } from "react-icons/Ai";
 
 const BlogSingleTemplate = ({ data: { strapiBlogs } }) => {
   let { heading, content, created_at, author, image } = strapiBlogs;
-  console.log(image);
-
   return (
     <Layout>
       <article className="singleBlog">
