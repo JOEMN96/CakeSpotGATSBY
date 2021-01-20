@@ -3,14 +3,18 @@ import styled from "styled-components";
 
 import BackgroundImage from "gatsby-background-image";
 
-const BackgroundSection = ({ className, image, children }) => {
+const BackgroundSection = ({ className, image }) => {
   return (
-    <BackgroundImage Tag="div" fluid={image} className={className}>
-      {children}
-    </BackgroundImage>
+    <BackgroundImage
+      Tag="div"
+      fluid={image}
+      className={className}
+    ></BackgroundImage>
   );
 };
 
-const BgHover = styled(BackgroundSection)``;
+const BgHover = styled(BackgroundSection)`
+  position: absolute !important;
+`;
 
 export default BgHover;
