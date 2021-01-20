@@ -28,7 +28,7 @@ module.exports = {
       options: {
         apiURL: `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`Heroslider`, `Featured-Contents`, `blogs`],
+        contentTypes: [`Heroslider`, `Featured-Contents`, `blogs`,`cakes`],
         //If using single types place them in this array.
         singleTypes: [],
         // Possibility to login with a strapi user, when content types are not publically available (optional).

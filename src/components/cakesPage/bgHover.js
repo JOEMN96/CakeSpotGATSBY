@@ -11,6 +11,6 @@ const BackgroundSection = ({ className, image, children }) => {
   );
 };
 
-const StyledBackgroundSection = styled(BackgroundSection)``;
+const BgHover = styled(BackgroundSection)``;
 
-export default StyledBackgroundSection;
+export default BgHover;

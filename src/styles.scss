@@ -602,13 +602,13 @@ nav {
     margin-bottom: 60px;
   }
 
-  .cardbg .card__img,
-  .cardbg .card__img--hover {
-    background-image: url("https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  }
+  // .cardbg .card__img,
+  // .cardbg .card__img--hover {
+  //   background-image: url("https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  // }
 
   .card__img {
-    visibility: hidden;
+    visibility: hidden !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -619,11 +619,12 @@ nav {
   }
 
   .card__info-hover {
-    position: absolute;
+    position: absolute !important;
     padding: 16px;
     width: 100%;
-    opacity: 0;
-    top: 0;
+    opacity: 0 !important;
+    top: 0 !important;
+    height: 300px;
   }
 
   .card__img--hover {
@@ -636,7 +637,7 @@ nav {
     height: 235px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    top: 0;
+    top: 0 !important;
   }
   .card {
     margin-right: 25px;
@@ -694,7 +695,8 @@ nav {
   }
 
   .card:hover .card__info-hover {
-    opacity: 1;
+    opacity: 1 !important;
+    height: 235px;
   }
   .card__cart {
     font-size: 24px;
