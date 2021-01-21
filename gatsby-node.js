@@ -14,6 +14,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  const resP = await graphql(`
+    query name {
+      allStrapiCakes {
+        nodes {
+          slug: name
+        }
+      }
+    }
+  `);
+
   res.data.allStrapiBlogs.nodes.forEach((val) => {
     createPage({
       path: `/Blogs/${val.slug}`,
@@ -21,6 +31,16 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: val.slug,
       },
-    })
+    });
+  });
+
+  resP.data.allStrapiCakes.nodes.forEach((item) => {
+    createPage({
+      path: `/allCakes/${item.slug}`,
+      component: path.resolve(`src/components/cakesPage/CakePageTemplate.js`),
+      context: {
+        slug: item.slug,
+      },
+    });
   });
 };

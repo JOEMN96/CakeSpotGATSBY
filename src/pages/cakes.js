@@ -12,20 +12,10 @@ let query = graphql`
         Price
         Tagline
         name
-        id
         mainImg {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        slider {
-          img {
-            childrenImageSharp {
-              fluid {
-                base64
-              }
             }
           }
         }
@@ -39,14 +29,12 @@ function Cakes() {
     cakes: { nodes: cakes },
   } = useStaticQuery(query);
 
-  console.log(cakes);
-
   return (
     <Layout>
       <section className="cakespg__main">
         <Grid spacing={2} container className="containerMAin">
-          {cakes.map((cake) => {
-            return <SingleCake key={cake.id} {...cake} />;
+          {cakes.map((cake, index) => {
+            return <SingleCake key={cake.index} {...cake} />;
           })}
         </Grid>
       </section>

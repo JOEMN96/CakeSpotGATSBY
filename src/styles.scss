@@ -602,10 +602,6 @@ nav {
     margin-bottom: 60px;
   }
 
-  // .cardbg .card__img,
-  // .cardbg .card__img--hover {
-  //   background-image: url("https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  // }
   a {
     color: inherit;
   }
@@ -711,6 +707,27 @@ nav {
     }
     & svg {
       @include transition();
+    }
+  }
+}
+
+// ?=============================?
+// ?                             ?
+// ?    Single Cake PAge         ?
+// ?                             ?
+// ?=============================?
+
+.SingleCakePage {
+  padding: 30px;
+  .breadCrumbs {
+    padding: 10px 0;
+    a {
+      color: black;
+    }
+    color: $secondaryText;
+    svg {
+      font-size: 19px;
+      vertical-align: middle;
     }
   }
 }
