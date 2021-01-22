@@ -6,24 +6,51 @@ import StyledBackgroundSection from "../cakesPage/SingleCakeBG";
 import BgHover from "../cakesPage/bgHover";
 import { Link } from "gatsby";
 import { useDispatch } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+
+let count = 0;
+
+// AlertBar
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 function SingleCake({ cake, inCart }) {
   let { Description, Price, Tagline, name, mainImg, id } = cake;
+  const [state, setState] = React.useState({
+    isopen: false,
+    vertical: "top",
+    horizontal: "left",
+  });
+
   const [clicked, setclicked] = useState(inCart);
+
+  // cart Funtionality
   const dispatch = useDispatch();
   const handleClick = () => {
     setclicked(!clicked);
     !clicked
       ? dispatch({
           type: "ADDTOCART",
-          item: { Description, Price, Tagline, name, mainImg, id },
-        })
+          item: { Description, Price, Tagline, name, mainImg, id, count },
+        }) && handleClickSnack({ vertical: "top", horizontal: "right" })
       : dispatch({ type: "REMOVEFROMCART", id });
   };
 
+  // fetching Image
   let {
     childImageSharp: { fluid: image },
   } = mainImg;
+
+  // handleing Snackbar Behaviour
+  const { vertical, horizontal, isopen } = state;
+  const handleClickSnack = (newState) => {
+    setState({ isopen: true, ...newState });
+  };
+  const handleClose = () => {
+    setState({ ...state, isopen: false });
+  };
 
   return (
     <Grid item lg={4} md={6} xs={12}>
@@ -54,6 +81,20 @@ function SingleCake({ cake, inCart }) {
           </div>
         </div>
       </article>
+      <Snackbar
+        className="cartAddedSnack"
+        autoHideDuration={3000}
+        anchorOrigin={{ vertical, horizontal }}
+        open={isopen}
+        onClose={handleClose}
+        message="I love snacks"
+        key={vertical + horizontal}
+        anchorPosition={{ top: 100 }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Sucessfully Added to Cart !
+        </Alert>
+      </Snackbar>
     </Grid>
   );
 }
