@@ -104,14 +104,33 @@ nav {
       &:hover {
         background-color: #ddd;
       }
-      .cartICon > * {
-        font-size: 20px;
+      .cartICon {
+        position: relative;
+        svg {
+          font-size: 20px;
+        }
+        .cartLength {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          position: absolute;
+          background-color: black;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-bottom: 2px;
+          left: 9px;
+          top: -8px;
+          font-size: 12px;
+        }
       }
     }
   }
 
   .bigscrennNav {
     margin-right: 20px;
+
     a {
       &:hover {
         mask-image: linear-gradient(
@@ -138,11 +157,30 @@ nav {
       cursor: pointer;
       color: black;
       font-weight: 600;
-      .cartICon > * {
-        font-size: 20px;
+      .cartICon {
+        position: relative;
+        svg {
+          font-size: 20px;
+        }
+        .cartLength {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          position: absolute;
+          background-color: black;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-bottom: 2px;
+          left: 9px;
+          top: -8px;
+          font-size: 12px;
+        }
       }
     }
   }
+
   // Menu Open logic classes
 
   .navisClosed {
@@ -730,6 +768,49 @@ nav {
       vertical-align: middle;
     }
   }
+  .CakeSldier {
+    margin-top: 20px;
+    max-height: 400px;
+    .gatsby-image-wrapper {
+      height: 400px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: white;
+    }
+  }
+  .singleCakeDes {
+    padding: 20px;
+    h1 {
+      margin: 10px 0;
+    }
+    h4 {
+      margin-bottom: 10px;
+      color: $secondaryText;
+    }
+    p {
+      color: $secondaryText;
+      text-align: justify;
+    }
+  }
+
+  .acionPlace {
+    margin-top: 20px;
+    display: flex;
+    button {
+      padding: 4px 25px;
+      background-color: black;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      border: 1px solid black;
+      margin-left: 20px;
+      svg {
+        vertical-align: middle;
+        font-size: 20px;
+      }
+    }
+  }
 }
 
 // ?=============================?
@@ -763,7 +844,8 @@ nav {
   }
 }
 @media screen and (max-width: 600px) {
-  .singleBlog {
+  .singleBlog,
+  .SingleCakePage {
     padding: 10px;
   }
 }

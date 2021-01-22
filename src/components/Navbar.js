@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const query = graphql`
   {
@@ -39,6 +40,7 @@ function Navbar() {
     nav.style.height = "60px";
     nav.classList.toggle("sticky", window.scrollY > 300);
   });
+  const cart = useSelector((state) => state.cart);
 
   return (
     <nav>
@@ -68,9 +70,10 @@ function Navbar() {
         <Link to="/about">About</Link>
         <Link to="/cakes">Cakes</Link>
         <Link to="/surpricePacks">SurpricePacks</Link>
-        <Link to="/">
+        <Link to="/Cart">
           <span className="cartICon">
             <FiShoppingCart />
+            <span className="cartLength">{cart.length}</span>
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>
@@ -89,9 +92,10 @@ function Navbar() {
         <Link to="/about">About</Link>
         <Link to="/cakes">Cakes</Link>
         <Link to="/surpricePacks">SurpricePacks</Link>
-        <Link to="/">
+        <Link to="/Cart">
           <span className="cartICon">
             <FiShoppingCart />
+            <span className="cartLength">{cart.length}</span>
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>

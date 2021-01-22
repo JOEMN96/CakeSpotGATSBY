@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Grid from "@material-ui/core/Grid";
 import SingleCake from "../components/cakesPage/singleCake";
 import { useStaticQuery, graphql } from "gatsby";
+import { useSelector } from "react-redux";
 
 let query = graphql`
   query allcakes {
@@ -12,9 +13,10 @@ let query = graphql`
         Price
         Tagline
         name
+        id
         mainImg {
           childImageSharp {
-            fluid {
+            fluid(quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -25,6 +27,7 @@ let query = graphql`
 `;
 
 function Cakes() {
+  const cart = useSelector((state) => state.cart);
   let {
     cakes: { nodes: cakes },
   } = useStaticQuery(query);
@@ -34,7 +37,10 @@ function Cakes() {
       <section className="cakespg__main">
         <Grid spacing={2} container className="containerMAin">
           {cakes.map((cake, index) => {
-            return <SingleCake key={cake.index} {...cake} />;
+            let res = cart.find((item) => {
+              return item.id == cake.id;
+            });
+            return <SingleCake key={index} inCart={res && true} cake={cake} />;
           })}
         </Grid>
       </section>

@@ -1,13 +1,20 @@
 const initialState = {
-  logo: [],
+  cart: [],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case "LOGO":
+    case "ADDTOCART":
       return {
         ...state,
-        logo: [...state.logo, action.logo],
+        cart: [...state.cart, action.item],
+      };
+    case "REMOVEFROMCART":
+      return {
+        ...state,
+        cart: state.cart.filter((item) => {
+          return item.id !== action.id;
+        }),
       };
     default:
       return state;
