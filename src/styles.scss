@@ -93,6 +93,16 @@ nav {
     background-color: $bgWhite;
     overflow-x: hidden;
     transition: 0.5s;
+
+    .avatarMobWrapper {
+      display: flex;
+      justify-content: center;
+      & > div {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+    }
     a {
       display: block;
       text-align: center;
@@ -130,7 +140,15 @@ nav {
 
   .bigscrennNav {
     margin-right: 20px;
-
+    .avatar {
+      display: inline-block;
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      padding-top: 2px;
+      cursor: pointer;
+    }
     a {
       &:hover {
         mask-image: linear-gradient(

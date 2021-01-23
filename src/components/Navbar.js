@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import Avatar from "@material-ui/core/Avatar";
 
 const query = graphql`
   {
@@ -77,6 +78,9 @@ function Navbar() {
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>
+        <Link to="/Account">
+          <Avatar className="avatar" alt="Anon" src="" />
+        </Link>
       </div>
       {/* Small screen Menu */}
       <div
@@ -99,6 +103,11 @@ function Navbar() {
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>
+        <div className="avatarMobWrapper">
+          <Link to="/Account">
+            <Avatar className="avatar" alt="Anon" src="" />
+          </Link>
+        </div>
       </div>
     </nav>
   );
