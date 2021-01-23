@@ -7,9 +7,21 @@ import WhoWeAre from "../components/homePage/WhoWeAre";
 import FeaturedItems from "../components/homePage/FeaturedItems";
 import Delivery from "../components/homePage/Delivery";
 import Blog from "../components/homePage/Blog";
+import { useDispatch } from "react-redux";
+
+// Setting up cart in local storage
+if (!localStorage.getItem("cart")) {
+  localStorage.setItem("cart", JSON.stringify([]));
+}
 
 // markup
 const IndexPage = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch({ type: "CHECKINITIAL" });
+  }, []);
+
   return (
     <Layout>
       <main className="indexPage">

@@ -89,7 +89,6 @@ function SingleCake({ cake, inCart }) {
         onClose={handleClose}
         message="I love snacks"
         key={vertical + horizontal}
-        anchorPosition={{ top: 100 }}
       >
         <Alert onClose={handleClose} severity="success">
           Sucessfully Added to Cart !

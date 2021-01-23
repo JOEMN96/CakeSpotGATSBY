@@ -820,6 +820,60 @@ nav {
 
 // ?=============================?
 // ?                             ?
+// ?         CArt Page           ?
+// ?                             ?
+// ?=============================?
+
+.cartWrapper {
+  min-height: calc(100vh - 60px);
+  padding: 20px 0;
+  .cartHeadings {
+    h3 {
+      color: #afafaf;
+    }
+  }
+
+  .singleCartItem {
+    padding: 30px 0px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+
+    .Wrapper {
+      & > div {
+        height: 80px;
+        width: 120px;
+      }
+      border: 1px solid #ddd;
+    }
+    .details {
+      padding: 0 10px;
+      p {
+        color: #d0d2d9;
+        font-size: 600;
+        font-size: 20px;
+      }
+    }
+    .close svg {
+      color: #d0d2d9;
+      cursor: pointer;
+      font-size: 26px;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  .emptyCart {
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// ?=============================?
+// ?                             ?
 // ?     Media Queries           ?
 // ?                             ?
 // ?=============================?

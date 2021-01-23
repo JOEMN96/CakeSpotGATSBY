@@ -27,7 +27,10 @@ let query = graphql`
 `;
 
 function Cakes() {
-  const cart = useSelector((state) => state.cart);
+  let localCart = JSON.parse(localStorage.getItem("cart"));
+  let cart = useSelector((state) => state.cart);
+  cart = cart.length < 1 ? localCart : cart;
+
   let {
     cakes: { nodes: cakes },
   } = useStaticQuery(query);
