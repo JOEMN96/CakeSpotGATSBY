@@ -5,6 +5,7 @@ import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
+// import firebase from "gatsby-plugin-firebase";
 
 const query = graphql`
   {
@@ -42,6 +43,8 @@ function Navbar() {
     nav.classList.toggle("sticky", window.scrollY > 300);
   });
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+  console.log(user);
 
   return (
     <nav>
@@ -79,7 +82,7 @@ function Navbar() {
         </Link>
         <Link to="/contact">Contact Us</Link>
         <Link to="/Account">
-          <Avatar className="avatar" alt="Anon" src="" />
+          <Avatar className="avatar" alt={user.name} src={user.picture} />
         </Link>
       </div>
       {/* Small screen Menu */}
@@ -105,7 +108,7 @@ function Navbar() {
         <Link to="/contact">Contact Us</Link>
         <div className="avatarMobWrapper">
           <Link to="/Account">
-            <Avatar className="avatar" alt="Anon" src="" />
+            <Avatar className="avatar" alt={user.name} src={user.picture} />
           </Link>
         </div>
       </div>

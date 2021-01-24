@@ -1,5 +1,6 @@
 const initialState = {
   cart: [],
+  user: {},
 };
 
 export default function reducer(state = initialState, action) {
@@ -32,17 +33,18 @@ export default function reducer(state = initialState, action) {
       let localCart = JSON.parse(localStorage.getItem("cart"))
         ? JSON.parse(localStorage.getItem("cart"))
         : [];
-
-      console.log(localCart);
-
       if (localCart.length > 0) {
         return {
           ...state,
           cart: localCart,
         };
       }
+    case "USERDETAIL":
+      return {
+        ...state,
+        user: { ...action.payload },
+      };
 
-      console.log("effect trigged");
     default:
       return state;
   }
