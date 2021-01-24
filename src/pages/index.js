@@ -8,6 +8,7 @@ import FeaturedItems from "../components/homePage/FeaturedItems";
 import Delivery from "../components/homePage/Delivery";
 import Blog from "../components/homePage/Blog";
 import { useDispatch } from "react-redux";
+import firebase from "gatsby-plugin-firebase";
 
 // Setting up cart in local storage
 if (!localStorage.getItem("cart")) {
@@ -18,10 +19,22 @@ if (!localStorage.getItem("cart")) {
 const IndexPage = () => {
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch({ type: "CHECKINITIAL" });
-  }, []);
-
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log(user);
+      let { displayName, photoURL } = user;
+      dispatch({
+        type: "USERDETAIL",
+        payload: { name: displayName, picture: photoURL },
+      });
+    } else {
+      // No user is signed in.
+      console.log("logged out");
+      dispatch({
+        type: "LOGGEDOUT",
+      });
+    }
+  });
   return (
     <Layout>
       <main className="indexPage">

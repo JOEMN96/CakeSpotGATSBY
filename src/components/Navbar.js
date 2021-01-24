@@ -5,6 +5,7 @@ import Image from "gatsby-image";
 import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
+import { useDispatch } from "react-redux";
 // import firebase from "gatsby-plugin-firebase";
 
 const query = graphql`
@@ -27,6 +28,15 @@ const query = graphql`
 `;
 
 function Navbar() {
+  // updating Cart val
+  const dispatch = useDispatch();
+  let runOnce = true; // to run onetime
+  React.useEffect(() => {
+    dispatch({ type: "CHECKINITIAL" });
+    console.log("dispatched");
+  }, [runOnce]);
+
+  // Setting up nav
   const [navOpen, setnavOpen] = useState(false);
   const data = useStaticQuery(query);
 
@@ -42,9 +52,8 @@ function Navbar() {
     nav.style.height = "60px";
     nav.classList.toggle("sticky", window.scrollY > 300);
   });
-  const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user);
-  console.log(user);
+  const { cart, user } = useSelector((state) => state);
+  // const user = useSelector((state) => state.user);
 
   return (
     <nav>

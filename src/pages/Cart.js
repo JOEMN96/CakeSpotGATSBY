@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import SingleCartItem from "../components/cartPage/singleCartItem";
 import Grid from "@material-ui/core/Grid";
+import { FaPhoneAlt } from "react-icons/fa";
 
 function Cart() {
   let localCart = JSON.parse(localStorage.getItem("cart"));
@@ -31,8 +32,18 @@ function Cart() {
               return <SingleCartItem key={index} {...item} />;
             })}
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
-            <h3>addresss</h3>
+          <Grid className="cartDetail" item xs={12} md={3} lg={3}>
+            <div>
+              <h3>About The cart</h3>
+              <p>
+                This cart is for sample purposes to check the price of our
+                different products.
+              </p>
+              <p>U can Pay online and call us ANd verify Your order</p>
+              <p>
+                <FaPhoneAlt /> <a href="tel:2829137318939">2829137318939</a>
+              </p>
+            </div>
           </Grid>
           <Grid item xs={12} md={3} lg={3}>
             <h3>Checkout</h3>
