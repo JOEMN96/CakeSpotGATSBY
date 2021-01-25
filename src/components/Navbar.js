@@ -33,7 +33,6 @@ function Navbar() {
   let runOnce = true; // to run onetime
   React.useEffect(() => {
     dispatch({ type: "CHECKINITIAL" });
-    console.log("dispatched");
   }, [runOnce]);
 
   // Setting up nav

@@ -9,6 +9,7 @@ import Delivery from "../components/homePage/Delivery";
 import Blog from "../components/homePage/Blog";
 import { useDispatch } from "react-redux";
 import firebase from "gatsby-plugin-firebase";
+import Checkout from "../stripe/checkout";
 
 // Setting up cart in local storage
 if (!localStorage.getItem("cart")) {
@@ -59,6 +60,7 @@ const IndexPage = () => {
                   aliquid repellendus odio, iusto repudiandae a? Repudiandae
                   quasi saepe blanditiis eveniet! Rerum, aliquam fuga.
                 </p>
+                <Checkout />
               </div>
             </div>
           </div>
