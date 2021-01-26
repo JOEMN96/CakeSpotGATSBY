@@ -62,13 +62,5 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ["Products"],
-        secretKey: process.env.GATSBY_STRIPE_TEST,
-        downloadFiles: true,
-      },
-    },
   ],
 };

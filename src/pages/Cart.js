@@ -39,7 +39,7 @@ function Cart() {
                 This cart is for sample purposes to check the price of our
                 different products.
               </p>
-              <p>U can Pay online and call us ANd verify Your order</p>
+              <p>U can Pay online and call us To verify Your order</p>
               <p>
                 <FaPhoneAlt /> <a href="tel:2829137318939">2829137318939</a>
               </p>

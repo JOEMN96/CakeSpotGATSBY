@@ -10,7 +10,6 @@ import Image from "gatsby-image";
 SwiperCore.use([Autoplay, Scrollbar, Navigation]);
 
 export default ({ slider }) => {
-  console.log(slider);
   return (
     <Swiper
       className="CakeSldier"

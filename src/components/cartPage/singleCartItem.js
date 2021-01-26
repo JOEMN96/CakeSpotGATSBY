@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 
 function SingleCartItem({ Price, name, mainImg, id }) {
   let dispatch = useDispatch();
-
   const handleClick = () => {
     dispatch({ type: "REMOVEFROMCART", id });
   };

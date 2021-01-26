@@ -6,17 +6,32 @@ import Grid from "@material-ui/core/Grid";
 import Slider from "./Slider";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 function CakePageTemplate({ data }) {
-  const [clicked, setclicked] = useState(false);
+  let localCart = JSON.parse(localStorage.getItem("cart"));
+
+  const dispatch = useDispatch();
+
+  let {
+    strapiCakes: { Description, Price, Tagline, name, slider, mainImg, id },
+  } = data;
+
+  let inCart = localCart.find((item) => {
+    return item.id === id;
+  });
+
+  const [clicked, setclicked] = useState(inCart?.name);
 
   const handleClick = () => {
     setclicked(!clicked);
+    !clicked
+      ? dispatch({
+          type: "ADDTOCART",
+          item: { Description, Price, Tagline, name, mainImg, id },
+        })
+      : dispatch({ type: "REMOVEFROMCART", id });
   };
-
-  let {
-    strapiCakes: { Description, Price, Tagline, name, slider },
-  } = data;
 
   return (
     <Layout>
@@ -56,6 +71,14 @@ export const query = graphql`
       Price
       Tagline
       name
+      mainImg {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      id
       slider {
         img {
           childImageSharp {
