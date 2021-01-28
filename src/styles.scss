@@ -918,6 +918,55 @@ nav {
 
 // ?=============================?
 // ?                             ?
+// ?     About Page              ?
+// ?                             ?
+// ?=============================?
+
+.about_us {
+  padding: 20px;
+  h1,
+  p {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+}
+
+.aboutPage {
+  .femaleSection {
+    & > div {
+      width: 300px;
+      border: 1px solid #f5b9be;
+      margin: 20px;
+      padding: 10px;
+    }
+    display: flex;
+    justify-content: flex-end;
+  }
+  .femaleSectionText {
+    padding: 20px;
+    position: relative;
+    & > div {
+      position: absolute;
+      left: -100px;
+      top: 135px;
+      width: 400px;
+      border: 1px solid #f5b9be;
+      padding: 10px;
+      background: white;
+      h1,
+      p {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+      h1 {
+        font-size: 46px;
+      }
+    }
+  }
+}
+
+// ?=============================?
+// ?                             ?
 // ?     Media Queries           ?
 // ?                             ?
 // ?=============================?
@@ -946,6 +995,21 @@ nav {
     height: auto;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .femaleSection {
+    justify-content: center !important;
+  }
+  .femaleSectionText {
+    padding: 20px;
+    position: static !important;
+    & > div {
+      position: static !important;
+      width: auto !important;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .singleBlog,
   .SingleCakePage {
