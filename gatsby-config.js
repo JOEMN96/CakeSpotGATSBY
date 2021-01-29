@@ -48,19 +48,5 @@ module.exports = {
         specialChars: "/:",
       },
     },
-    {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        credentials: {
-          apiKey: process.env.GATSBY_API_KEY,
-          authDomain: process.env.GATSBY_API_AUTHDOMAIN,
-          projectId: process.env.GATSBY_API_PROJECTID,
-          storageBucket: process.env.GATSBY_API_STORAGEBUCKET,
-          messagingSenderId: "768970806918",
-          appId: process.env.GATSBY_API_APPID,
-          measurementId: "G-BNS7V75FJZ",
-        },
-      },
-    },
   ],
 };

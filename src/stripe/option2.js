@@ -6,8 +6,6 @@ export default class TakeMoney extends React.Component {
     console.log(token);
   };
 
-  // ...
-
   render() {
     return (
       <StripeCheckout

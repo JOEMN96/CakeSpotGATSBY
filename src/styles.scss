@@ -94,15 +94,6 @@ nav {
     overflow-x: hidden;
     transition: 0.5s;
 
-    .avatarMobWrapper {
-      display: flex;
-      justify-content: center;
-      & > div {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-    }
     a {
       display: block;
       text-align: center;
@@ -934,7 +925,7 @@ nav {
 .aboutPage {
   .femaleSection {
     & > div {
-      width: 300px;
+      width: 400px;
       border: 1px solid #f5b9be;
       margin: 20px;
       padding: 10px;
@@ -948,7 +939,7 @@ nav {
     & > div {
       position: absolute;
       left: -100px;
-      top: 135px;
+      top: 285px;
       width: 400px;
       border: 1px solid #f5b9be;
       padding: 10px;
@@ -962,6 +953,33 @@ nav {
         font-size: 46px;
       }
     }
+  }
+
+  .ourStory {
+    & > div {
+      padding: 20px;
+    }
+    h1 {
+      font-weight: 400;
+      font-size: 48px;
+      color: $secondaryText;
+    }
+    p {
+      margin-bottom: 30px;
+      line-height: 27px;
+    }
+  }
+}
+
+// ?=============================?
+// ?                             ?
+// ?          Contact            ?
+// ?                             ?
+// ?=============================?
+
+.contactPage {
+  .Cndetails {
+    padding: 10px;
   }
 }
 

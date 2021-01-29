@@ -6,7 +6,6 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import Avatar from "@material-ui/core/Avatar";
 import { useDispatch } from "react-redux";
-// import firebase from "gatsby-plugin-firebase";
 
 const query = graphql`
   {
@@ -89,9 +88,6 @@ function Navbar() {
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>
-        <Link to="/Account">
-          <Avatar className="avatar" alt={user.name} src={user.picture} />
-        </Link>
       </div>
       {/* Small screen Menu */}
       <div
@@ -114,11 +110,7 @@ function Navbar() {
           </span>
         </Link>
         <Link to="/contact">Contact Us</Link>
-        <div className="avatarMobWrapper">
-          <Link to="/Account">
-            <Avatar className="avatar" alt={user.name} src={user.picture} />
-          </Link>
-        </div>
+        <div className="avatarMobWrapper"></div>
       </div>
     </nav>
   );
