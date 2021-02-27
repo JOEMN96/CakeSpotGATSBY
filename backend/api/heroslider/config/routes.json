@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/herosliders",
+      "handler": "heroslider.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/herosliders/count",
+      "handler": "heroslider.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/herosliders/:id",
+      "handler": "heroslider.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/herosliders",
+      "handler": "heroslider.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/herosliders/:id",
+      "handler": "heroslider.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/herosliders/:id",
+      "handler": "heroslider.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

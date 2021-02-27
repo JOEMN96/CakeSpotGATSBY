@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cakes",
+  "info": {
+    "name": "cake",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "mainImg": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Tagline": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "slider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cake-slider-image.cake-page"
+    }
+  }
+}

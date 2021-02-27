@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "herosliders",
+  "info": {
+    "name": "Heroslider",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "slider1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "AdditionalImg": {
+      "type": "component",
+      "repeatable": true,
+      "component": "otherimages.othersliders",
+      "min": 1
+    }
+  }
+}

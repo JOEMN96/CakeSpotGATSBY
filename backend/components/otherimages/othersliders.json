@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_otherimages_othersliders",
+  "info": {
+    "name": "othersliders",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "Imgs": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

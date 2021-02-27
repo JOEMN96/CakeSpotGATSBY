@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_cake_slider_image_cake_pages",
+  "info": {
+    "name": "cakePage",
+    "icon": "apple-alt"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
